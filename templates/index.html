@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            text-align: left;
+            width: 300px;
+            margin: auto;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: #218838;
+        }
+        .info {
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter House Details</h2>
+        <form action="/predict" method="POST">
+            
+            <label>Longitude:</label>
+            <input type="number" name="longitude" step="0.01" min="-180" max="180" required>
+            <span class="info">Range: -180 to 180</span><br>
+
+            <label>Latitude:</label>
+            <input type="number" name="latitude" step="0.01" min="-90" max="90" required>
+            <span class="info">Range: -90 to 90</span><br>
+
+            <label>Housing Median Age:</label>
+            <input type="number" name="housing_median_age" min="1" max="100" required>
+            <span class="info">Range: 1 to 100</span><br>
+
+            <label>Total Rooms:</label>
+            <input type="number" name="total_rooms" min="1" required>
+            <span class="info">Must be greater than 1</span><br>
+
+            <label>Total Bedrooms:</label>
+            <input type="number" name="total_bedrooms" min="1" required>
+            <span class="info">Must be greater than 1</span><br>
+
+            <label>Population:</label>
+            <input type="number" name="population" min="1" required>
+            <span class="info">Must be greater than 1</span><br>
+
+            <label>Households:</label>
+            <input type="number" name="households" min="1" required>
+            <span class="info">Must be greater than 1</span><br>
+
+            <label>Median Income:</label>
+            <input type="number" name="median_income" step="0.01" min="0" required>
+            <span class="info">Should be positive</span><br>
+
+            <label>Ocean Proximity:</label>
+            <select name="ocean_proximity" required>
+                <option value="NEAR BAY">NEAR BAY</option>
+                <option value="INLAND">INLAND</option>
+                <option value="NEAR OCEAN">NEAR OCEAN</option>
+                <option value="ISLAND">ISLAND</option>
+                <option value="<1H OCEAN">Less than 1 Hour to Ocean</option>
+            </select><br>
+
+            <input type="submit" value="Predict Price">
+        </form>
+    </div>
+</body>
+</html>

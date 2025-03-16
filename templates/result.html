@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicted Price</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .container { width: 50%; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        h2 { color: green; }
+        .error { color: red; }
+        button { padding: 10px; background-color: blue; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: darkblue; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>House Price Prediction Result</h2>
+        {% if predicted_price %}
+            <p><strong>Predicted Price: </strong> ${{ predicted_price }}</p>
+        {% else %}
+            <p class="error">Error: {{ error }}</p>
+        {% endif %}
+        <button onclick="window.location.href='/'">Go Back</button>
+    </div>
+
+</body>
+</html>
+
